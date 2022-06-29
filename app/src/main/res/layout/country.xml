@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="country" type="com.example.covidstatus.model.Country"/>
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@{country.name ?? @string/Country}"
+            app:titleTextColor="@android:color/white"
+            android:background="@color/colorPrimary"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:padding="@dimen/padding2"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Total"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize4"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/displayNumbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Numbers"
+                    android:textColor="@color/selectedWhite"
+                    android:textSize="@dimen/textSize3"
+                    android:textStyle="bold"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/displayPercentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Percentage"
+                    android:textColor="@color/unselectedWhite"
+                    android:textSize="@dimen/textSize3"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_marginBottom="@dimen/margin2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cases"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/totalCases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.totalCases)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Deaths"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/totalDeaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.totalDeaths)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Recovered"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/totalRecovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.totalRecovered)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Tested"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/totalTests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.totalTested)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Today"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize4"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_marginBottom="@dimen/margin2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cases"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/todayCases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.todayCases)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Deaths"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.todayDeaths)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Recovered"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.todayRecovered)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Per_One_Million"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/textSize4"
+                android:textStyle="bold"
+                android:layout_marginBottom="@dimen/margin2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:layout_marginBottom="@dimen/margin2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Cases"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/pomCases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.pomCases)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Deaths"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/pomDeaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.pomDeaths)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Recovered"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/pomRecovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.pomRecovered)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/margin2">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Tested"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginLeft="@dimen/margin5"
+                    android:layout_marginStart="@dimen/margin5"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+                <TextView
+                    android:id="@+id/pomTests"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.valueOf(country.pomTested)}"
+                    android:textSize="@dimen/textSize3"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="@dimen/margin2"
+                    android:layout_marginEnd="@dimen/margin2"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">COVID Status</string>
+    <string name="India">India</string>
+    <string name="World">World</string>
+    <string name="Country">Country</string>
+    <string name="Total">Total</string>
+    <string name="Today">Today</string>
+    <string name="Numbers">Numbers</string>
+    <string name="Percentage">Percentage</string>
+    <string name="Per_One_Million">Per One Million</string>
+    <string name="Districts">Districts</string>
+    <string name="Cases">Cases:</string>
+    <string name="Active_Cases">Active Cases:</string>
+    <string name="Critical_Cases">Critical_Cases:</string>
+    <string name="Deaths">Deaths:</string>
+    <string name="Recovered">Recovered:</string>
+    <string name="Tested">Tested:</string>
+</resources>

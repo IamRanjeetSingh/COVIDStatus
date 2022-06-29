@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="state" type="com.example.covidstatus.model.State" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@{state.name ?? @string/Country}"
+            app:titleTextColor="@android:color/white"
+            android:background="@color/colorPrimary"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:padding="@dimen/padding2"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Total"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/textSize4"
+                        android:textStyle="bold"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/displayNumbers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Numbers"
+                        android:textColor="@color/selectedWhite"
+                        android:textSize="@dimen/textSize3"
+                        android:textStyle="bold"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/displayPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Percentage"
+                        android:textColor="@color/unselectedWhite"
+                        android:textSize="@dimen/textSize3"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white"
+                    android:layout_marginBottom="@dimen/margin2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Cases"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/totalCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.totalCases)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Deaths"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/totalDeaths"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.totalDeaths)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Recovered"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/totalRecovered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.totalRecovered)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Tested"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/totalTests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.totalTested)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Today"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize4"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/margin2"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white"
+                    android:layout_marginBottom="@dimen/margin2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Cases"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/todayCases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.todayCases)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Deaths"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/deaths"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.todayDeaths)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="@dimen/margin2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Recovered"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginLeft="@dimen/margin5"
+                        android:layout_marginStart="@dimen/margin5"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                    <TextView
+                        android:id="@+id/recovered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(state.todayRecovered)}"
+                        android:textSize="@dimen/textSize3"
+                        android:textColor="@android:color/white"
+                        android:layout_marginRight="@dimen/margin2"
+                        android:layout_marginEnd="@dimen/margin2"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Districts"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/textSize4"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/margin2"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/white"
+                    android:layout_marginBottom="@dimen/margin2"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/districtsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    tools:listitem="@layout/district_list_item"/>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+</layout>

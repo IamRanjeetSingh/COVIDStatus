@@ -1,0 +1,9 @@
+Base URL: https://api.covid19api.com/
+List Summary of All Countries(without active cases): summary
+List Summary of One Country from dayone all Status(With active cases): country/{country-slug}
+
+List of time series from day one: dayone/country/{coutry-slug}/status/{confirmed or deaths or recovered}
+
+
+Base URL: https://disease.sh/v2/
+List of all Countries: countries?yesterday=false&sort=cases&allowNull=false
